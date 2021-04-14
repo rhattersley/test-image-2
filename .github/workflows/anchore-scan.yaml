@@ -1,6 +1,15 @@
 name: ci
 
-on: pull_request
+on:
+  push:
+    branches:
+      - main
+      - '*'
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '21 05 * * 4'
 
 jobs:
   build-image:
