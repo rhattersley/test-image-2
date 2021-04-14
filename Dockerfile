@@ -1,3 +1,4 @@
 FROM bempp/notebook:latest
 
-RUN apt-get update
+# Get rid of parsing errors for grype
+RUN sed -i '/^Martin\|^Ola/d' /usr/lib/python2.7/dist-packages/fenics_ffc-2017.2.0.egg-info/PKG-INFO
