@@ -1,8 +1,5 @@
-FROM ubuntu:focal-20210416
+FROM bempp/notebook:latest
 
-RUN apt-get update && apt-get install -y fortune cowsay lolcat
-
-ENV PATH /usr/games:${PATH}
-ENV LC_ALL=C
-
-ENTRYPOINT fortune | cowsay | lolcat
+# Get rid of parsing errors for grype
+RUN sed -i '/^Martin\|^Ola/d' /usr/lib/python2.7/dist-packages/fenics_ffc-2017.2.0.egg-info/PKG-INFO
+RUN sed -i '/^Martin\|^Ola/d' /usr/lib/python3/dist-packages/fenics_ffc-2017.2.0.egg-info/PKG-INFO
