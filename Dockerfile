@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20210416
+FROM ubuntu:focal-20220531
 
 RUN apt-get update && apt-get install -y fortune cowsay lolcat
 
